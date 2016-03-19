@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //ui->widget->hide();
+    ui->lineEdit->setText(QString::number(11.0));
 
 //    for(double i=0;i<100.0;i++)
 //    {
@@ -24,18 +26,18 @@ MainWindow::MainWindow(QWidget *parent) :
 //    ui->widget->replot();
     // add two new graphs and set their look:
     ui->widget->addGraph();
-    ui->widget->graph(0)->setPen(QPen(Qt::blue)); // line color blue for first graph
+    ui->widget->graph(0)->setPen(QPen(Qt::blue)); // line color blue for first graphw
     //ui->widget->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20))); // first graph will be filled with translucent blue
     ui->widget->addGraph();
     ui->widget->graph(1)->setPen(QPen(Qt::red)); // line color red for second graph
     // generate some points of data (y0 for first, y1 for second graph):
-   // QVector<double> x1, y0, y1(250);
-    for (int i=0; i<250; ++i)
+    QVector<double> x(250), y0(250), y1(250);
+    for (double i=0; i<250; ++i)
     {
-//      x[i] = i;
-//      y0[i] = qCos(i/10.0);
-      x.push_back(i);
-      y0.push_back(qCos(i/10.0));
+      x[i] = i;
+      y0[i] = qCos(i/10.0);
+//      x.push_back(i);
+//      y0.push_back(qCos(i/10.0));
       //y0[i] = qExp(-i/150.0)*qCos(i/10.0);// exponentially decaying cosine
       //y1[i] = qExp(-i/150.0);              // exponential envelope
     }
@@ -62,24 +64,25 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    QVector<double>::iterator itx;
-    for(itx=x.begin();itx=x.end();++itx)
-    {
-        delete itx;
-    }
-    QVector<double>::iterator ity;
-    for(ity=y0.begin();ity=y0.end();++ity)
-    {
-        delete ity;
-    }
+//    QVector<double>::iterator itx;
+//    for(itx=x.begin();itx=x.end();++itx)
+//    {
+//        delete itx;
+//    }
+//    QVector<double>::iterator ity;
+//    for(ity=y0.begin();ity=y0.end();++ity)
+//    {
+//        delete ity;
+//    }
     delete ui;
 }
 
 double MainWindow::power(double a, double b)
 {
-    double pow=0;
+    double pow=1;
     for(int i=0;i<b;i++)
     {
-       pow+=a*a;
+       pow*=a;
     }
+    return pow;
 }

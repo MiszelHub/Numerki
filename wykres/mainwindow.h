@@ -20,7 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-     QVector<double>x, y0;
+//     QVector<double>x[250], y0[250];
 
 
 };

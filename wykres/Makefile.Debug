@@ -2537,7 +2537,14 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QPair \
 		C:/Qt/5.5/mingw492_32/include/QtPrintSupport/qprintpreviewwidget.h \
 		C:/Qt/5.5/mingw492_32/include/QtPrintSupport/qtprintsupportversion.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QMenuBar \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QStatusBar \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QToolBar
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o mainwindow.cpp
 
 debug/qcustomplot.o: qcustomplot.cpp qcustomplot.h \
