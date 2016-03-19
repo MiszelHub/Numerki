@@ -17,6 +17,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     double power(double a, double b);
+    double horner(double wsp[], double st, double x);
 
 private:
     Ui::MainWindow *ui;
