@@ -37,15 +37,15 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>270</x>
       <y>40</y>
-      <width>82</width>
+      <width>161</width>
       <height>33</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>f(x)=W(x)</string>
+      <string>f(x)=Exp(x)*Cos(W(x))</string>
      </property>
     </item>
     <item>
@@ -124,6 +124,19 @@
     </property>
     <property name="text">
      <string>Funkcja</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>40</y>
+      <width>121</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Oblicz Pierwiastek</string>
     </property>
    </widget>
   </widget>

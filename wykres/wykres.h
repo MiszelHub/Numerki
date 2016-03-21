@@ -20,15 +20,19 @@ public:
     double horner(double wsp[], double st, double x);
     void GenerujWykres();
     void reloadWykres();
-    double Wspolczynniki();
+    void Wspolczynniki();
+    double funkcje(int i, int j);
 
 private slots:
     void on_pushButton_clicked();
 
     void on_comboBox_activated(int index);
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Wykres *ui;
+    int funkcja;
     double *wspo;
     Znajdz_pierwiastek pierwiastek;
     int stopien;

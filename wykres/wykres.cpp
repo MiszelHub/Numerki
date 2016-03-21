@@ -54,10 +54,11 @@ void Wykres::GenerujWykres()
     for (double i=0.0,j=-125; i<250;++j, ++i)
     {
       x[i] = j;
+      y0[i] = funkcje(i,j);
       //y0[i] = qExp(-2*j/150.0)*horner(wspo,stopien,j);
       //y0[i] = power(qSin(j),horner(wspo,stopien,j/50.0));
       //y0[i] = qTan(horner(wspo,2.0,j/5.0));
-     y0[i] = qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));// exponentially decaying cosine
+    // y0[i] = qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));// exponentially decaying cosine
       // x.push_back(i);
 //      y0.push_back(qCos(i/10.0));
 
@@ -87,17 +88,9 @@ void Wykres::GenerujWykres()
 
 }
 
-double Wykres::Wspolczynniki()
+void Wykres::Wspolczynniki()
 {
 
-    QString tmp=ui->wspolczynniki->text();
-
-
-}
-
-void Wykres::on_pushButton_clicked()
-{
-    pierwiastek.show();
     stopien = ui->lineEdit->text().toInt();
     wspo = new double[stopien+1];
    for(int i=0;i<stopien+1;i++)
@@ -106,11 +99,40 @@ void Wykres::on_pushButton_clicked()
    }
 
 
+}
+
+double Wykres::funkcje(int i, int j) //i - index tablicy j - argument dziedziny funkcji
+{
+    if(ui->comboBox->currentIndex() == 0)
+    {
+        return  qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));
+    }
+    if(ui->comboBox->currentIndex() == 1)
+    {
+        return  qTan(horner(wspo,stopien,j/5.0));
+    }
+    if(ui->comboBox->currentIndex() == 2)
+    {
+        return   power(qSin(j),horner(wspo,stopien,j/50.0));
+    }
+}
+
+void Wykres::on_pushButton_clicked()
+{
+
+    Wspolczynniki();
     GenerujWykres();
     ui->widget->show();
+    ui->widget->replot();
 }
 
 void Wykres::on_comboBox_activated(int index)
 {
 
+
+}
+
+void Wykres::on_pushButton_2_clicked()
+{
+     pierwiastek.show();
 }
