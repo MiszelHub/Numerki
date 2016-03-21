@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>622</height>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QCustomPlot" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>60</y>
+      <x>40</x>
+      <y>100</y>
       <width>741</width>
       <height>521</height>
      </rect>
@@ -28,8 +28,8 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>10</y>
-      <width>113</width>
+      <y>50</y>
+      <width>51</width>
       <height>27</height>
      </rect>
     </property>
@@ -37,25 +37,25 @@
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>10</y>
+      <x>300</x>
+      <y>40</y>
       <width>82</width>
       <height>33</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>W(x)</string>
+      <string>f(x)=W(x)</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Tan(W(x))</string>
+      <string>f(x)=Tan(W(x))</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Sin(x)^W(x)</string>
+      <string>f(x)=Sin(x)^W(x)</string>
      </property>
     </item>
     <item>
@@ -67,8 +67,8 @@
    <widget class="QLineEdit" name="wspolczynniki">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>10</y>
+      <x>140</x>
+      <y>50</y>
       <width>113</width>
       <height>27</height>
      </rect>
@@ -77,14 +77,53 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>10</y>
+      <x>450</x>
+      <y>40</y>
       <width>121</width>
       <height>27</height>
      </rect>
     </property>
     <property name="text">
      <string>Rysuj Wykres</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stopien Wielomianu</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wpółczynniki</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>10</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Funkcja</string>
     </property>
    </widget>
   </widget>
@@ -94,7 +133,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -16,39 +16,34 @@
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>82</width>
+     <x>20</x>
+     <y>30</y>
+     <width>131</width>
      <height>33</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_2">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>70</y>
-     <width>82</width>
-     <height>33</height>
-    </rect>
-   </property>
+   <item>
+    <property name="text">
+     <string>none</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Metoda Bisekcji</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Metoda Siecznych</string>
+    </property>
+   </item>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
+     <x>20</x>
+     <y>170</y>
      <width>81</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>30</y>
-     <width>113</width>
      <height>27</height>
     </rect>
    </property>
@@ -56,84 +51,48 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>230</y>
-     <width>85</width>
+     <x>110</x>
+     <y>240</y>
+     <width>151</width>
      <height>27</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Znajdź pierwiastek</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>10</y>
-     <width>59</width>
+     <y>0</y>
+     <width>191</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Wybierz metodę obliczania pierwiastka</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>230</x>
      <y>0</y>
-     <width>59</width>
+     <width>171</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>59</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>60</y>
-     <width>59</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
+    <string>kryteruim zatrzeymania algorytmu</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_3">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>150</y>
-     <width>113</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>150</y>
-     <width>113</width>
+     <x>130</x>
+     <y>170</y>
+     <width>71</width>
      <height>27</height>
     </rect>
    </property>
@@ -143,25 +102,60 @@
     <rect>
      <x>0</x>
      <y>150</y>
-     <width>59</width>
+     <width>121</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>podaj przedział od</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>150</y>
+     <x>110</x>
+     <y>170</y>
      <width>59</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>do</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>30</y>
+     <width>131</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>none</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ilość iteracji</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>dokładnosć do epsilon</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>70</y>
+     <width>71</width>
+     <height>27</height>
+    </rect>
    </property>
   </widget>
  </widget>

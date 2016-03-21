@@ -51,14 +51,16 @@ void Wykres::GenerujWykres()
    // ui->widget->graph(1)->setPen(QPen(Qt::red)); // line color red for second graph
     // generate some points of data (y0 for first, y1 for second graph):
     QVector<double> x(250), y0(250);
-    for (double i=0.0; i<250.0; ++i)
+    for (double i=0.0,j=-125; i<250;++j, ++i)
     {
-      x[i] = i;
-      //y0[i] = power(qSin(i),horner(wspo,2.0,i/50.0));
-       y0[i] = qTan(horner(wspo,2.0,i/50.0));
-//      x.push_back(i);
+      x[i] = j;
+      //y0[i] = qExp(-2*j/150.0)*horner(wspo,stopien,j);
+      //y0[i] = power(qSin(j),horner(wspo,stopien,j/50.0));
+      //y0[i] = qTan(horner(wspo,2.0,j/5.0));
+     y0[i] = qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));// exponentially decaying cosine
+      // x.push_back(i);
 //      y0.push_back(qCos(i/10.0));
-      //y0[i] = qExp(-i/150.0)*qCos(i/10.0);// exponentially decaying cosine
+
       //y1[i] = qExp(-i/150.0);              // exponential envelope
     }
     // configure right and top axis to show ticks but no labels:
@@ -97,10 +99,10 @@ void Wykres::on_pushButton_clicked()
 {
     pierwiastek.show();
     stopien = ui->lineEdit->text().toInt();
-    wspo = new double[stopien];
-   for(int i=0;i<stopien;i++)
+    wspo = new double[stopien+1];
+   for(int i=0;i<stopien+1;i++)
    {
-     wspo[i] = 1;
+     wspo[i] = i;
    }
 
 
