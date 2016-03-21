@@ -2,6 +2,8 @@
 #define WYKRES_H
 
 #include <QMainWindow>
+#include "znajdz_pierwiastek.h"
+
 
 namespace Ui {
 class Wykres;
@@ -14,9 +16,22 @@ class Wykres : public QMainWindow
 public:
     explicit Wykres(QWidget *parent = 0);
     ~Wykres();
+    double power(double a, double b);
+    double horner(double wsp[], double st, double x);
+    void GenerujWykres();
+    void reloadWykres();
+    QString Wspolczynniki();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_comboBox_activated(int index);
 
 private:
     Ui::Wykres *ui;
+    double *wspo;
+    Znajdz_pierwiastek pierwiastek;
+
 };
 
 #endif // WYKRES_H
