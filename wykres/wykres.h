@@ -20,7 +20,7 @@ public:
     double horner(double wsp[], double st, double x);
     void GenerujWykres();
     void reloadWykres();
-    QString Wspolczynniki();
+    double Wspolczynniki();
 
 private slots:
     void on_pushButton_clicked();
@@ -31,6 +31,7 @@ private:
     Ui::Wykres *ui;
     double *wspo;
     Znajdz_pierwiastek pierwiastek;
+    int stopien;
 
 };
 

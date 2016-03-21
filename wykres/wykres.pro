@@ -12,17 +12,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     qcustomplot.cpp \
     znajdz_pierwiastek.cpp \
     wykres.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     qcustomplot.h \
     znajdz_pierwiastek.h \
     wykres.h
 
 FORMS    += \
     znajdz_pierwiastek.ui \
-    mainwindow.ui \
     wykres.ui

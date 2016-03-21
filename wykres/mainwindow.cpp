@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->widget->hide();
+    //ui->widget->hide();
     pierwiastek.show();
     ui->lineEdit->setText(QString::number(11.0));
 

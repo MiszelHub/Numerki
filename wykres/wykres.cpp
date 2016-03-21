@@ -2,6 +2,7 @@
 #include "ui_wykres.h"
 #include"qcustomplot.h"
 #include<qmath.h>
+#include<QVector>
 
 Wykres::Wykres(QWidget *parent) :
     QMainWindow(parent),
@@ -54,7 +55,7 @@ void Wykres::GenerujWykres()
     {
       x[i] = i;
       //y0[i] = power(qSin(i),horner(wspo,2.0,i/50.0));
-       y0[i] = qTan(horner(wspo,2.0,i));
+       y0[i] = qTan(horner(wspo,2.0,i/50.0));
 //      x.push_back(i);
 //      y0.push_back(qCos(i/10.0));
       //y0[i] = qExp(-i/150.0)*qCos(i/10.0);// exponentially decaying cosine
@@ -84,26 +85,24 @@ void Wykres::GenerujWykres()
 
 }
 
-QString Wykres::Wspolczynniki()
+double Wykres::Wspolczynniki()
 {
+
     QString tmp=ui->wspolczynniki->text();
 
-    for(QString::iterator it=tmp.begin();it!=tmp.end();++it)
-    {
-        return (*it);
-    }
 
 }
 
 void Wykres::on_pushButton_clicked()
 {
     pierwiastek.show();
-    int stopien = ui->lineEdit->text().toInt();
+    stopien = ui->lineEdit->text().toInt();
     wspo = new double[stopien];
    for(int i=0;i<stopien;i++)
    {
-     wspo[i] = Wspolczynniki().toDouble();
+     wspo[i] = 1;
    }
+
 
     GenerujWykres();
     ui->widget->show();
