@@ -21,7 +21,19 @@ public:
     void GenerujWykres();
     void reloadWykres();
     void Wspolczynniki();
-    double funkcje(int i, int j);
+    double funkcje(int j);
+
+
+
+
+    int getStopien() const;
+    void setStopien(int value);
+
+    double *getWspo() const;
+    void setWspo(double *value);
+
+    Znajdz_pierwiastek *getPierwiastek() const;
+    void setPierwiastek(Znajdz_pierwiastek *value);
 
 private slots:
     void on_pushButton_clicked();
@@ -32,9 +44,9 @@ private slots:
 
 private:
     Ui::Wykres *ui;
-    int funkcja;
+    double funkcja;
     double *wspo;
-    Znajdz_pierwiastek pierwiastek;
+    Znajdz_pierwiastek *pierwiastek;
     int stopien;
 
 };

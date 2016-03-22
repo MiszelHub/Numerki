@@ -9,7 +9,7 @@ Wykres::Wykres(QWidget *parent) :
     ui(new Ui::Wykres)
 {
     ui->setupUi(this);
-
+    pierwiastek->setWsk(this);
 
     ui->widget->hide();
 }
@@ -54,7 +54,7 @@ void Wykres::GenerujWykres()
     for (double i=0.0,j=-125; i<250;++j, ++i)
     {
       x[i] = j;
-      y0[i] = funkcje(i,j);
+      y0[i] = funkcje(j);
       //y0[i] = qExp(-2*j/150.0)*horner(wspo,stopien,j);
       //y0[i] = power(qSin(j),horner(wspo,stopien,j/50.0));
       //y0[i] = qTan(horner(wspo,2.0,j/5.0));
@@ -101,20 +101,21 @@ void Wykres::Wspolczynniki()
 
 }
 
-double Wykres::funkcje(int i, int j) //i - index tablicy j - argument dziedziny funkcji
+double Wykres::funkcje(int j) //i - index tablicy j - argument dziedziny funkcji
 {
     if(ui->comboBox->currentIndex() == 0)
     {
-        return  qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));
+        funkcja = qExp(-j/150.0)*qCos(horner(wspo,stopien,j/10.0));
     }
     if(ui->comboBox->currentIndex() == 1)
     {
-        return  qTan(horner(wspo,stopien,j/5.0));
+        funkcja = qTan(horner(wspo,stopien,j/5.0));
     }
     if(ui->comboBox->currentIndex() == 2)
     {
-        return   power(qSin(j),horner(wspo,stopien,j/50.0));
+        funkcja = power(qSin(j),horner(wspo,stopien,j/50.0));
     }
+    return funkcja;
 }
 
 void Wykres::on_pushButton_clicked()
@@ -134,5 +135,36 @@ void Wykres::on_comboBox_activated(int index)
 
 void Wykres::on_pushButton_2_clicked()
 {
-     pierwiastek.show();
+     pierwiastek->show();
 }
+
+Znajdz_pierwiastek *Wykres::getPierwiastek() const
+{
+    return pierwiastek;
+}
+
+void Wykres::setPierwiastek(Znajdz_pierwiastek *value)
+{
+    pierwiastek = value;
+}
+
+double *Wykres::getWspo() const
+{
+    return wspo;
+}
+
+void Wykres::setWspo(double *value)
+{
+    wspo = value;
+}
+
+int Wykres::getStopien() const
+{
+    return stopien;
+}
+
+void Wykres::setStopien(int value)
+{
+    stopien = value;
+}
+

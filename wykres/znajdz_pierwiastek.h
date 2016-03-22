@@ -1,6 +1,6 @@
 #ifndef ZNAJDZ_PIERWIASTEK_H
 #define ZNAJDZ_PIERWIASTEK_H
-
+class Wykres;
 
 #include <QDialog>
 
@@ -17,11 +17,22 @@ public:
     ~Znajdz_pierwiastek();
     double power(double a, double b);
     double horner(double wsp[], double st, double x);
-    void GenerujWykres();
-    void reloadWykres();
+    double MetodaBisekcji(double a,double b, double epsilon);
+    void WyswietlPierwiastek();
+    double getPierwiastek() const;
+    void setPierwiastek(double value);
+
+    Wykres *getWsk() const;
+    void setWsk(Wykres *value);
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::Znajdz_pierwiastek *ui;
+    Wykres *wsk;
+    double pierwiastek;
+
 };
 
 #endif // ZNAJDZ_PIERWIASTEK_H
