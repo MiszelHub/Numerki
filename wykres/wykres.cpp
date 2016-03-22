@@ -9,7 +9,7 @@ Wykres::Wykres(QWidget *parent) :
     ui(new Ui::Wykres)
 {
     ui->setupUi(this);
-    pierwiastek->setWsk(this);
+   // pierwiastek->setWsk(this);
 
     ui->widget->hide();
 }
@@ -95,7 +95,7 @@ void Wykres::Wspolczynniki()
     wspo = new double[stopien+1];
    for(int i=0;i<stopien+1;i++)
    {
-     wspo[i] = i;
+     wspo[i] = 1;
    }
 
 
