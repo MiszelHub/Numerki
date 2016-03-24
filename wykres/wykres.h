@@ -19,8 +19,7 @@ public:
     double power(double a, double b);
     double horner(double wsp[], double st, double x);
     void GenerujWykres();
-    void reloadWykres();
-    void Wspolczynniki();
+    void UstawWspolczynniki();
     double funkcje(int j);
 
 
