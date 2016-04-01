@@ -38,7 +38,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="a">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -87,7 +87,7 @@
     <string>kryteruim zatrzeymania algorytmu</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="b">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -148,7 +148,7 @@
     </property>
    </item>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="dokladnosc">
    <property name="geometry">
     <rect>
      <x>240</x>

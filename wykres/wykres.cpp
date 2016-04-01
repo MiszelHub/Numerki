@@ -3,7 +3,8 @@
 #include"qcustomplot.h"
 #include<qmath.h>
 #include<QVector>
-
+#include<string>
+using namespace std;
 Wykres::Wykres(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Wykres)
@@ -46,7 +47,7 @@ void Wykres::GenerujWykres()
     pen.setStyle(Qt::SolidLine);
     pen.setColor(Qt::blue);
     ui->widget->graph(0)->setPen(pen);
-    ui->widget->addGraph();
+    //ui->widget->addGraph();
 
     QVector<double> x(250), y0(250);
     for (double i=0.0,j=-125; i<250;++j, ++i)
@@ -69,9 +70,7 @@ void Wykres::GenerujWykres()
     // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
 
     ui->widget->graph(0)->rescaleAxes();
-    // same thing for graph 1, but only enlarge ranges (in case graph 1 is smaller than graph 0):
-    ui->widget->graph(1)->rescaleAxes(true);
-    // Note: we could have also just called ui->widget->rescaleAxes(); instead
+
     // Allow user to drag axis ranges with mouse, zoom with mouse wheel and select graphs by clicking:
     ui->widget->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 
@@ -80,17 +79,28 @@ void Wykres::GenerujWykres()
 void Wykres::UstawWspolczynniki()
 {
 
-    stopien = ui->lineEdit->text().toInt();
+    stopien = ui->lineEdit->text().toDouble();
     wspo = new double[stopien+1];
    for(int i=0;i<stopien+1;i++)
    {
      wspo[i] = i;
    }
+//   string orbits;
+//   orbits = ui->wspolczynniki->text().toStdString();
+//   string::size_type  offset; // alias of size_t
+//  //size_t rozmiar=4;
+//  //double *wspolczynniki = new double[rozmiar];
+//  wspo[0] = std::stod (&orbits[0],&offset);
+//  for(size_t i=1;i<stopien;i++)
+//  {
+//      wspo[i] = std::stod (orbits.substr(i*offset));
+//  }
+
 
 
 }
 
-double Wykres::funkcje(int j) //i - index tablicy j - argument dziedziny funkcji
+double Wykres::funkcje(int j) // j - argument dziedziny funkcji
 {
     if(ui->comboBox->currentIndex() == 0)
     {

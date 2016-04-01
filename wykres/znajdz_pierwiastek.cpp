@@ -56,16 +56,74 @@ double Znajdz_pierwiastek::MetodaBisekcji(double a, double b, double epsilon)
     }
     return x1;
 }
+double Znajdz_pierwiastek::MetodaBisekcji(double a, double b, size_t max_iteracji)
+{
+    double x1;
+
+    for(size_t i=0; i<max_iteracji;i++)
+    {
+        x1=(a+b)/2.0;
+
+        if(wsk->funkcje(x1)*wsk->funkcje(a) < 0)
+        {
+            b = x1;
+        }
+        else
+        {
+            a = x1;
+        }
+    }
+    return x1;
+}
 
 void Znajdz_pierwiastek::WyswietlPierwiastek()
 {
     ui->pierwiastek->setText(QString::number(pierwiastek));
 }
 
+bool Znajdz_pierwiastek::WybierzMetode()
+{
+   if(ui->comboBox->currentIndex() == 1)
+   {
+       return 1;
+   }
+   else return 0;
+}
+
+void Znajdz_pierwiastek::WybierzDokladnosc()
+{
+    if(WybierzMetode() == 1)
+    {
+        if(ui->comboBox_2->currentIndex() == 2)
+        {
+            this->pierwiastek = MetodaBisekcji(ui->a->text().toDouble(),ui->b->text().toDouble(),ui->dokladnosc->text().toDouble());
+        }
+            else if(ui->comboBox_2->currentIndex() == 1)
+        {
+            this->pierwiastek = MetodaBisekcji(ui->a->text().toDouble(),ui->b->text().toDouble(),ui->dokladnosc->text().toUInt());
+        }
+    }
+    else
+    {
+        //MetodaSiecznych();
+
+    }
+}
+
 
 void Znajdz_pierwiastek::on_pushButton_clicked()
 {
-    this->pierwiastek = MetodaBisekcji(24,30,0.0001);
+
+//    if(ui->comboBox_2->currentIndex() == 1)
+//    {
+//        this->pierwiastek = MetodaBisekcji(ui->a->text().toDouble(),ui->b->text().toDouble(),ui->dokladnosc->text().toDouble());
+//    }
+//    else if(ui->comboBox_2->currentIndex() == 2)
+//    {
+//        this->pierwiastek = MetodaBisekcji(ui->a->text().toDouble(),ui->b->text().toDouble(),ui->dokladnosc->text().toUInt());
+//    }
+    WybierzDokladnosc();
+    WyswietlPierwiastek();
 }
 
 Wykres *Znajdz_pierwiastek::getWsk() const
