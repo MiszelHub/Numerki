@@ -18,7 +18,7 @@ public:
     ~Wykres();
     double power(double a, double b);
     double horner(double wsp[], double st, double x);
-    void GenerujWykres();
+    void GenerujWykres(bool m_zerowe);
     void UstawWspolczynniki();
     double funkcje(int j);
 
@@ -34,6 +34,12 @@ public:
     Znajdz_pierwiastek *getPierwiastek() const;
     void setPierwiastek(Znajdz_pierwiastek *value);
 
+    Ui::Wykres *getUi() const;
+    void setUi(Ui::Wykres *value);
+
+    double getMiejsce_zerowe() const;
+    void setMiejsce_zerowe(double value);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -46,6 +52,7 @@ private:
     double funkcja;
     double *wspo;
     Znajdz_pierwiastek *pierwiastek;
+    double miejsce_zerowe;
     int stopien;
 
 };

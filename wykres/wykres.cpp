@@ -40,7 +40,7 @@ double Wykres::horner(double wsp[], double st, double x)
     return wynik;
 }
 
-void Wykres::GenerujWykres()
+void Wykres::GenerujWykres(bool m_zerowe=false)
 {
     ui->widget->addGraph();
     QPen pen;
@@ -48,13 +48,17 @@ void Wykres::GenerujWykres()
     pen.setColor(Qt::blue);
     ui->widget->graph(0)->setPen(pen);
     //ui->widget->addGraph();
-
-    QVector<double> x(250), y0(250);
+    ui->widget->addGraph();
+    ui->widget->graph(1)->setPen(QColor(100, 0, 0, 255));
+    ui->widget->graph(1)->setLineStyle(QCPGraph::lsNone);
+    ui->widget->graph(1)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 5));
+    QVector<double> x(250), y0(250), x1(1), y1(1);
     for (double i=0.0,j=-125; i<250;++j, ++i)
     {
       x[i] = j;
       y0[i] = funkcje(j);
     }
+
     // configure right and top axis to show ticks but no labels:
 
     ui->widget->xAxis2->setVisible(true);
@@ -67,9 +71,16 @@ void Wykres::GenerujWykres()
     connect(ui->widget->yAxis, SIGNAL(rangeChanged(QCPRange)), ui->widget->yAxis2, SLOT(setRange(QCPRange)));
     // pass data points to graphs:
     ui->widget->graph(0)->setData(x, y0);
+    if(m_zerowe == true)
+    {
+        x1[0] = miejsce_zerowe;
+        y1[0] = 0;
+        ui->widget->graph(1)->setData(x1, y1);
+    }
     // let the ranges scale themselves so graph 0 fits perfectly in the visible area:
 
     ui->widget->graph(0)->rescaleAxes();
+     ui->widget->graph(1)->rescaleAxes();
 
     // Allow user to drag axis ranges with mouse, zoom with mouse wheel and select graphs by clicking:
     ui->widget->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
@@ -114,6 +125,10 @@ double Wykres::funkcje(int j) // j - argument dziedziny funkcji
     {
         funkcja = power(qSin(j),horner(wspo,stopien,j/50.0));
     }
+    if(ui->comboBox->currentIndex() == 3)
+    {
+        funkcja = 1.0/(double)qAtan(j/20.0)+5;
+    }
     return funkcja;
 }
 
@@ -137,6 +152,26 @@ void Wykres::on_pushButton_2_clicked()
     pierwiastek = new Znajdz_pierwiastek;
     pierwiastek->setWsk(this);
     pierwiastek->show();
+}
+
+double Wykres::getMiejsce_zerowe() const
+{
+    return miejsce_zerowe;
+}
+
+void Wykres::setMiejsce_zerowe(double value)
+{
+    miejsce_zerowe = value;
+}
+
+Ui::Wykres *Wykres::getUi() const
+{
+    return ui;
+}
+
+void Wykres::setUi(Ui::Wykres *value)
+{
+    ui = value;
 }
 
 Znajdz_pierwiastek *Wykres::getPierwiastek() const

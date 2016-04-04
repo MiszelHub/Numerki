@@ -60,19 +60,14 @@
     </item>
     <item>
      <property name="text">
+      <string>f(x)=1/arctan(x)+5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string/>
      </property>
     </item>
-   </widget>
-   <widget class="QLineEdit" name="wspolczynniki">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>50</y>
-      <width>113</width>
-      <height>27</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
@@ -98,19 +93,6 @@
     </property>
     <property name="text">
      <string>Stopien Wielomianu</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>101</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Wpółczynniki</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

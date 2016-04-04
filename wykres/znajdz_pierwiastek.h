@@ -15,10 +15,10 @@ class Znajdz_pierwiastek : public QDialog
 public:
     explicit Znajdz_pierwiastek(QWidget *parent = 0);
     ~Znajdz_pierwiastek();
-    double power(double a, double b);
-    double horner(double wsp[], double st, double x);
     double MetodaBisekcji(double a,double b, double epsilon);
     double MetodaBisekcji(double a, double b, size_t max_iteracji);
+    double MetodaSiecznych(double a, double b, double epsilon);
+    double MetodaSiecznych(double a, double b, size_t max_iteracji);
     void WyswietlPierwiastek();
     bool WybierzMetode();
     void WybierzDokladnosc();
