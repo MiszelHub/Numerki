@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
     cout<<"Podaj ilosc niewiadomych "<<endl;
     cin>>iloscNiewiadomych;
     MacierzRownanLiniowych *macierz = new MacierzRownanLiniowych(iloscNiewiadomych);
+
     try
     {
       WypelnijMaciezRownanLiniowych(macierz);

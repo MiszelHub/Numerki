@@ -29,7 +29,10 @@ public:
 
     int wybierzKryteriumZatrzymania(double wartoscKryterium);
     void RozwiazUkladRownanMetodaGausaSeidla();
+    bool SprawdzMocneKryteriumSumyWierszy();
+    bool SprawdzMocneKryteriumSumyKolumn();
     bool SprawdzCzyMacierzJestScisleDominujacaDiagonalnie();
+
 
     bool getKryterium() const;
     void setKryterium(bool value);

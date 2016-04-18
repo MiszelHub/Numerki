@@ -109,10 +109,26 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
     }
 }
 
-bool MacierzRownanLiniowych::SprawdzCzyMacierzJestScisleDominujacaDiagonalnie()
+bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyWierszy()
 {
+    bool kryteriumSumyWierszy=true;
+    for(int j=0;j<iloscNiewiadomych;j++)
+    {
+        double sum = 0;
+        for(int i=0;i<iloscNiewiadomych;i++)
+        {
+            if(i!=j)
+                sum += fabs(wspolczynniki[i][j]);
+        }
+        if(wspolczynniki[j][j] < sum)
+            kryteriumSumyWierszy=false;
+    }
+    return kryteriumSumyWierszy;
+}
 
-    bool czyDominujacaDiagonalnie=true;
+bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyKolumn()
+{
+    bool kryteriumSumyKolumn=true;
     for(int i=0;i<iloscNiewiadomych;i++)
     {
         double sum = 0;
@@ -122,9 +138,16 @@ bool MacierzRownanLiniowych::SprawdzCzyMacierzJestScisleDominujacaDiagonalnie()
                 sum += fabs(wspolczynniki[i][j]);
         }
         if(wspolczynniki[i][i] < sum)
-            czyDominujacaDiagonalnie=false;
+            kryteriumSumyKolumn=false;
     }
-    return czyDominujacaDiagonalnie;
+    return kryteriumSumyKolumn;
+}
+
+bool MacierzRownanLiniowych::SprawdzCzyMacierzJestScisleDominujacaDiagonalnie()
+{
+    if(SprawdzMocneKryteriumSumyKolumn()==true || SprawdzMocneKryteriumSumyWierszy() == true)
+        return true;
+
 }
 
 bool MacierzRownanLiniowych::getKryterium() const
