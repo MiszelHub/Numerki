@@ -95,7 +95,7 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
         if(this->kryterium == 0)
         {
             for(int i=0;i<iloscNiewiadomych;i++)
-                if((fabs(macierzWynikowa[i])-poprzedniePrzyblizenie[i])>epsilon)
+                if((fabs(macierzWynikowa[i]-poprzedniePrzyblizenie[i])) < epsilon)
                     active=false;
         }else
         {
