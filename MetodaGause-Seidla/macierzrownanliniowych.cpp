@@ -121,7 +121,7 @@ bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyWierszy()
             if(i!=j)
                 sum += fabs(wspolczynniki[i][j]);
         }
-        if(fabs(wspolczynniki[j][j]) < sum)
+        if(fabs(wspolczynniki[j][j]) <= sum)
             kryteriumSumyWierszy=false;
     }
     return kryteriumSumyWierszy;
@@ -138,7 +138,7 @@ bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyKolumn()
             if(i!=j)
                 sum += fabs(wspolczynniki[i][j]);
         }
-        if(fabs(wspolczynniki[i][i]) < sum)
+        if(fabs(wspolczynniki[i][i]) <= sum)
             kryteriumSumyKolumn=false;
     }
     return kryteriumSumyKolumn;
