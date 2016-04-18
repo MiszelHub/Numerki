@@ -9,8 +9,8 @@ MacierzRownanLiniowych::MacierzRownanLiniowych(int iloscNiewiadomych)
     wyrazyWolne = new double [iloscNiewiadomych];
 
     macierzWynikowa = new double [iloscNiewiadomych];
-    for(int i=0;i<iloscNiewiadomych;i++)
-        macierzWynikowa[i]=0;
+//    for(int i=0;i<iloscNiewiadomych;i++)
+//        macierzWynikowa[i]=0;
 
     wspolczynniki = new double *[iloscNiewiadomych];
     for(int i=0; i<iloscNiewiadomych;i++)
@@ -120,7 +120,7 @@ bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyWierszy()
             if(i!=j)
                 sum += fabs(wspolczynniki[i][j]);
         }
-        if(wspolczynniki[j][j] < sum)
+        if(fabs(wspolczynniki[j][j]) < sum)
             kryteriumSumyWierszy=false;
     }
     return kryteriumSumyWierszy;
@@ -137,7 +137,7 @@ bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyKolumn()
             if(i!=j)
                 sum += fabs(wspolczynniki[i][j]);
         }
-        if(wspolczynniki[i][i] < sum)
+        if(fabs(wspolczynniki[i][i]) < sum)
             kryteriumSumyKolumn=false;
     }
     return kryteriumSumyKolumn;
