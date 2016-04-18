@@ -80,7 +80,6 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
 
     while(active)
     {
-       // std::cout<<active;
         for(int i=0; i<iloscNiewiadomych;i++)
         {
             double sum = wyrazyWolne[i];
@@ -90,7 +89,7 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
                 if(i != j)
                     sum = sum - wspolczynniki[i][j]*macierzWynikowa[j];
                 macierzWynikowa[i] = sum/wspolczynniki[i][i];
-                std::cout<<"macierzwynikowa"<<macierzWynikowa[i]<<std::endl;
+                std::cout<<"macierz wynikowa: "<<macierzWynikowa[i]<<std::endl;
             }
         }
         if(this->kryterium == 0)
@@ -108,6 +107,24 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
 
         std::copy(macierzWynikowa,macierzWynikowa+iloscNiewiadomych,poprzedniePrzyblizenie);
     }
+}
+
+bool MacierzRownanLiniowych::SprawdzCzyMacierzJestScisleDominujacaDiagonalnie()
+{
+
+    bool czyDominujacaDiagonalnie=true;
+    for(int i=0;i<iloscNiewiadomych;i++)
+    {
+        double sum = 0;
+        for(int j=0;j<iloscNiewiadomych;j++)
+        {
+            if(i!=j)
+                sum += fabs(wspolczynniki[i][j]);
+        }
+        if(wspolczynniki[i][i] < sum)
+            czyDominujacaDiagonalnie=false;
+    }
+    return czyDominujacaDiagonalnie;
 }
 
 bool MacierzRownanLiniowych::getKryterium() const

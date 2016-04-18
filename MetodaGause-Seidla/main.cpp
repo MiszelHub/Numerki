@@ -16,6 +16,9 @@ void WypelnijMaciezRownanLiniowych(MacierzRownanLiniowych *macierz)
 
         }
     }
+    if(!macierz->SprawdzCzyMacierzJestScisleDominujacaDiagonalnie())
+        throw "Macierz nie jest diagonalnie dominujaca";
+
     cout<<"Podaj wyrazywolne"<<endl;
     for(int i=0;i<macierz->getIloscNiewiadomych();i++)
     {
@@ -53,8 +56,16 @@ int main(int argc, char *argv[])
     cout<<"Podaj ilosc niewiadomych "<<endl;
     cin>>iloscNiewiadomych;
     MacierzRownanLiniowych *macierz = new MacierzRownanLiniowych(iloscNiewiadomych);
+    try
+    {
+      WypelnijMaciezRownanLiniowych(macierz);
+    }
+    catch(const char* msg)
+    {
+        cerr<<msg<<endl;
+        return 0;
+    }
 
-    WypelnijMaciezRownanLiniowych(macierz);
     WyswietlMAcierz(macierz);
     do
     {
@@ -64,7 +75,7 @@ int main(int argc, char *argv[])
         cin.sync();
         cin>>wyborKryteriumZatrzymania;
         cout<<wyborKryteriumZatrzymania;
-    }while((wyborKryteriumZatrzymania !=1) && (wyborKryteriumZatrzymania !=2));
+    }while((wyborKryteriumZatrzymania !=0) && (wyborKryteriumZatrzymania !=1));
 
     cout<<"Podaj wartosc kryterium"<<endl;
     cin>>kryterium;

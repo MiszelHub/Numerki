@@ -29,6 +29,7 @@ public:
 
     int wybierzKryteriumZatrzymania(double wartoscKryterium);
     void RozwiazUkladRownanMetodaGausaSeidla();
+    bool SprawdzCzyMacierzJestScisleDominujacaDiagonalnie();
 
     bool getKryterium() const;
     void setKryterium(bool value);
