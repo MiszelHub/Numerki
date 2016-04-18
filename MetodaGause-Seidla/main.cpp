@@ -85,12 +85,15 @@ int main(int argc, char *argv[])
     double kryterium;
 
     cout<<"Podaj ilosc niewiadomych "<<endl;
-    cout<<"Tak - 1"<<endl<<"Nie - 0"<<endl;
     cin>>iloscNiewiadomych;
+
     MacierzRownanLiniowych *macierz = new MacierzRownanLiniowych(iloscNiewiadomych);
+
     cout<<"Czy chcesz wczytac wspolczynniki z plku"<<endl;
+    cout<<"Tak - 1"<<endl<<"Nie - 0"<<endl;
     bool czyWczytacZPliku;
     cin>>czyWczytacZPliku;
+
     if(!czyWczytacZPliku)
     {
         try
