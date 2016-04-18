@@ -107,6 +107,7 @@ void MacierzRownanLiniowych::RozwiazUkladRownanMetodaGausaSeidla()
 
         std::copy(macierzWynikowa,macierzWynikowa+iloscNiewiadomych,poprzedniePrzyblizenie);
     }
+    delete [] poprzedniePrzyblizenie;
 }
 
 bool MacierzRownanLiniowych::SprawdzMocneKryteriumSumyWierszy()
