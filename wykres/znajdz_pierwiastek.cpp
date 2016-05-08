@@ -14,8 +14,10 @@ Znajdz_pierwiastek::~Znajdz_pierwiastek()
     delete ui;
 }
 
+void newMethod()
+{
 
-
+}
 double Znajdz_pierwiastek::MetodaBisekcji(double a, double b, double epsilon)
 {
     double x1;
