@@ -15,9 +15,8 @@ Wykres::Wykres(QWidget *parent) :
 
 Wykres::~Wykres()
 {
-
     delete ui;
-    delete pierwiastek;
+
 }
 
 double Wykres::power(double a, double b)
@@ -204,3 +203,9 @@ void Wykres::setStopien(int value)
     stopien = value;
 }
 
+
+void Wykres::on_pushButton_3_clicked()
+{
+    this->close();
+
+}
